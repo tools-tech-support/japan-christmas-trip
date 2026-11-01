@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Winter in Japan 2026–2027 · Tokyo – Mt. Fuji – Hakuba</title>
+  <meta name="description" content="Interactive 16:9 widescreen winter travel lookbook: Tokyo, Mt. Fuji & Hakuba Christmas–New Year Itinerary (Dec 25, 2026 – Jan 5, 2027)." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230A1226'/%3E%3Cpolygon points='10,50 32,16 54,50' fill='%23E2BE57'/%3E%3Cpolygon points='23,30 32,16 41,30 36,28 32,32 28,28' fill='%23F9FBFE'/%3E%3C/svg%3E" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="viewport-shell">
+    <div class="deck-stage" id="deckStage">
+      <!-- Top Progress Ribbon -->
+      <div class="stage-progress" aria-hidden="true">
+        <div class="stage-progress-fill" id="progressFill"></div>
+      </div>
+
+      <!-- Subtle Winter Snowfall Canvas -->
+      <canvas id="snowCanvas" aria-hidden="true"></canvas>
+
+      <!-- =====================================================
+           SLIDE 1: COVER LOOKBOOK
+           ===================================================== -->
+      <section class="slide theme-navy active" data-title="Cover · Winter in Japan" data-sub="2026–2027" data-thumb="images/cover_fuji_winter.jpg">
+        <div class="full-bleed-bg">
+          <img src="images/cover_fuji_winter.jpg" alt="Snow-capped Mount Fuji in winter" />
+        </div>
+        <div class="full-bleed-overlay"></div>
+
+        <div class="cover-layout">
+          <div class="cover-topline anim-rise">
+            <div class="lookbook-issue">Winter Holiday Lookbook · Edition 2026–2027</div>
+            <div class="eyebrow-row">
+              <span class="festive-tag">🎄 Christmas Departure</span>
+              <span class="festive-tag pine">❄️ Powder &amp; Neon</span>
+            </div>
+          </div>
+
+          <div class="cover-center anim-rise delay-1">
+            <div class="cover-kicker">2026-12-25 — 2027-01-05 · 12-Day Expedition</div>
+            <h1 class="cover-title">
+              Tokyo <span class="gold-italic">· Mt. Fuji ·</span><br />
+              Hakuba Alps
+            </h1>
+            <div class="cover-route-line">
+              <span>🚄 Shinjuku</span>
+              <span>→</span>
+              <span>🗻 Fuji</span>
+              <span>→</span>
+              <span>🎿 Hakuba</span>
+              <span>→</span>
+              <span>🌃 Shibuya</span>
+              <span>→</span>
+              <span>✈️ Narita · BKK</span>
+            </div>
+          </div>
+
+          <div class="cover-bottom anim-rise delay-2">
+            <div class="cover-stats">
+              <div class="stat-glass">
+                <div class="stat-num">12</div>
+                <div class="stat-lbl">Winter Days</div>
+              </div>
+              <div class="stat-glass">
+                <div class="stat-num">04</div>
+                <div class="stat-lbl">Rental Cars</div>
+              </div>
+              <div class="stat-glass">
+                <div class="stat-num">17</div>
+                <div class="stat-lbl">Travelers</div>
+              </div>
+              <div class="stat-glass">
+                <div class="stat-num">Dec 25</div>
+                <div class="stat-lbl">To Jan 05</div>
+              </div>
+            </div>
+
+            <button type="button" class="start-cta-btn" onclick="jumpToSlide(2)">
+              <span>View Route Map</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M13 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SLIDE 2: GRAPHIC ROUTE OVERVIEW MAP & TIMELINE
+           ===================================================== -->
+      <section class="slide theme-navy" data-title="Route Overview Map" data-sub="Tokyo → Fuji → Hakuba" data-thumb="images/d6_hakuba_harbor.jpg">
+        <div class="slide-pad">
+          <header class="day-topbar anim-rise">
+            <div class="day-title-group">
+              <div class="eyebrow-row">
+                <span class="day-pill">Master Route</span>
+                <span class="date-badge">2026-12-25 → 2027-01-05</span>
+              </div>
+              <h2 class="editorial-h1">The Winter Loop <em>Across Honshu</em></h2>
+            </div>
+            <div class="header-meta-strip">
+              <div class="meta-chip gold-border">🚄 Tokyo → Mt. Fuji → Hakuba → Shibuya → Narita</div>
+            </div>
+          </header>
+
+          <div class="map-grid anim-rise delay-1">
+            <!-- Graphic Stylized Topographic Route SVG -->
+            <div class="svg-map-panel">
+              <svg viewBox="0 0 800 500" role="img" aria-label="Route map connecting Tokyo Shinjuku, Mt. Fuji, Hakuba, Shibuya, and Narita">
+                <defs>
+                  <linearGradient id="landGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#17294D" />
+                    <stop offset="100%" stop-color="#0C1730" />
+                  </linearGradient>
+                  <linearGradient id="goldArc" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#E05777" />
+                    <stop offset="50%" stop-color="#E2BE57" />
+                    <stop offset="100%" stop-color="#52B788" />
+                  </linearGradient>
+                  <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                  </filter>
+                </defs>
+
+                <!-- Subtle Lat/Long Grid -->
+                <g stroke="rgba(255,255,255,0.05)" stroke-width="1">
+                  <line x1="0" y1="100" x2="800" y2="100" />
+                  <line x1="0" y1="200" x2="800" y2="200" />
+                  <line x1="0" y1="300" x2="800" y2="300" />
+                  <line x1="0" y1="400" x2="800" y2="400" />
+                  <line x1="160" y1="0" x2="160" y2="500" />
+                  <line x1="320" y1="0" x2="320" y2="500" />
+                  <line x1="480" y1="0" x2="480" y2="500" />
+                  <line x1="640" y1="0" x2="640" y2="500" />
+                </g>
+
+                <!-- Stylized Central Honshu Coastline Silhouette -->
+                <path d="M80,430 L150,390 L215,415 L265,375 L335,395 L385,435 L430,395 L495,365 L540,385 L565,335 L605,345 L675,375 L735,315 L720,210 L655,120 L525,65 L340,55 L205,95 L125,180 L75,295 Z"
+                      fill="url(#landGrad)" stroke="rgba(226,190,87,0.28)" stroke-width="2" />
+
+                <!-- Topographic Contours (Hakuba Northern Alps & Mt. Fuji) -->
+                <ellipse cx="265" cy="145" rx="75" ry="42" fill="none" stroke="rgba(255,255,255,0.08)" stroke-dasharray="4 4" />
+                <ellipse cx="265" cy="145" rx="45" ry="24" fill="none" stroke="rgba(255,255,255,0.14)" />
+                <polygon points="245,152 265,118 285,152" fill="rgba(249,251,254,0.2)" stroke="#E2BE57" stroke-width="1.5" />
+
+                <circle cx="385" cy="340" r="46" fill="none" stroke="rgba(255,255,255,0.09)" stroke-dasharray="4 4" />
+                <polygon points="363,350 385,312 407,350" fill="rgba(249,251,254,0.25)" stroke="#E2BE57" stroke-width="1.5" />
+
+                <!-- Leg 1: Shinjuku -> Kamakura/Numazu -> Mt. Fuji -->
+                <path d="M545,276 Q495,385 385,340" fill="none" stroke="url(#goldArc)" stroke-width="4" filter="url(#glow)" />
+                <!-- Leg 2: Mt. Fuji -> Hakuba Alps -->
+                <path d="M385,340 Q285,265 265,145" fill="none" stroke="url(#goldArc)" stroke-width="4" filter="url(#glow)" />
+                <!-- Leg 3: Hakuba -> Shibuya -->
+                <path d="M265,145 Q440,155 566,312" fill="none" stroke="#E2BE57" stroke-width="3.5" stroke-dasharray="8 6" />
+                <!-- Leg 4: Shibuya -> Narita -->
+                <path d="M566,312 Q632,300 685,275" fill="none" stroke="#E05777" stroke-width="3.5" />
+
+                <!-- Node 1: Shinjuku (Days 1-3) -->
+                <g class="map-node-group" onclick="jumpToSlide(4)">
+                  <circle class="node-ring" cx="545" cy="276" r="14" fill="rgba(224,87,119,0.22)" stroke="#E05777" stroke-width="2" />
+                  <circle cx="545" cy="276" r="6" fill="#FFFFFF" />
+                  <text x="530" y="242" fill="#FFFFFF" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700" text-anchor="end">01 · Shinjuku</text>
+                  <text x="530" y="258" fill="#E2BE57" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="end">Dec 25–27 (D1–D3)</text>
+                </g>
+
+                <!-- Coastal Waypoint: Kamakurakoko-mae & Numazu -->
+                <g onclick="jumpToSlide(7)" style="cursor:pointer">
+                  <circle cx="468" cy="368" r="4.5" fill="#E2BE57" />
+                  <text x="468" y="392" fill="rgba(255,255,255,0.72)" font-family="Plus Jakarta Sans, sans-serif" font-size="11" text-anchor="middle">Kamakura · Numazu</text>
+                </g>
+
+                <!-- Node 2: Mt. Fuji (Days 4-5) -->
+                <g class="map-node-group" onclick="jumpToSlide(7)">
+                  <circle class="node-ring" cx="385" cy="340" r="14" fill="rgba(226,190,87,0.22)" stroke="#E2BE57" stroke-width="2" />
+                  <circle cx="385" cy="340" r="6" fill="#FFFFFF" />
+                  <text x="355" y="346" fill="#FFFFFF" font-family="Cormorant Garamond, serif" font-size="22" font-weight="700" text-anchor="end">02 · Mt. Fuji</text>
+                  <text x="355" y="362" fill="#E2BE57" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="end">Dec 28–29 (D4–D5)</text>
+                </g>
+
+                <!-- Node 3: Hakuba (Days 6-8) -->
+                <g class="map-node-group" onclick="jumpToSlide(9)">
+                  <circle class="node-ring" cx="265" cy="145" r="15" fill="rgba(82,183,136,0.25)" stroke="#52B788" stroke-width="2" />
+                  <circle cx="265" cy="145" r="6.5" fill="#FFFFFF" />
+                  <text x="265" y="96" fill="#FFFFFF" font-family="Cormorant Garamond, serif" font-size="24" font-weight="700" text-anchor="middle">03 · Hakuba Alps</text>
+                  <text x="265" y="114" fill="#8CE99A" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">Dec 30 – Jan 01 (D6–D8)</text>
+                </g>
+
+                <!-- Node 4: Shibuya & Ueno (Days 8-11) -->
+                <g class="map-node-group" onclick="jumpToSlide(12)">
+                  <circle class="node-ring" cx="566" cy="312" r="14" fill="rgba(226,190,87,0.22)" stroke="#E2BE57" stroke-width="2" />
+                  <circle cx="566" cy="312" r="6" fill="#FFFFFF" />
+                  <text x="582" y="338" fill="#FFFFFF" font-family="Cormorant Garamond, serif" font-size="21" font-weight="700">04 · Shibuya &amp; Ueno</text>
+                  <text x="582" y="354" fill="#E2BE57" font-family="JetBrains Mono, monospace" font-size="11">Jan 01–04 (D8–D11)</text>
+                </g>
+
+                <!-- Node 5: Narita -> BKK (Day 12) -->
+                <g class="map-node-group" onclick="jumpToSlide(15)">
+                  <circle class="node-ring" cx="685" cy="275" r="14" fill="rgba(224,87,119,0.25)" stroke="#E05777" stroke-width="2" />
+                  <circle cx="685" cy="275" r="6" fill="#FFFFFF" />
+                  <text x="685" y="236" fill="#FFFFFF" font-family="Cormorant Garamond, serif" font-size="21" font-weight="700" text-anchor="middle">05 · Narita → BKK</text>
+                  <text x="685" y="252" fill="#F3DC8A" font-family="JetBrains Mono, monospace" font-size="11" text-anchor="middle">Jan 05 · รถไฟออก 6.46</text>
+                </g>
+              </svg>
+            </div>
+
+            <!-- Interactive Chapter Timeline Cards -->
+            <div class="chapter-cards-col">
+              <div class="chapter-row-card" onclick="jumpToSlide(4)">
+                <img class="chapter-thumb" src="images/d1_omoide_yokocho.jpg" alt="Shinjuku" />
+                <div class="chapter-info">
+                  <h3>Chapter I · Shinjuku</h3>
+                  <p>Suga Shrine · Meiji Jingu · Gōtokuji · Golden-Gai</p>
+                </div>
+                <span class="chapter-dates">Dec 25–27</span>
+              </div>
+
+              <div class="chapter-row-card" onclick="jumpToSlide(7)">
+                <img class="chapter-thumb" src="images/d4_kamakurakokomae.jpg" alt="Mt. Fuji and Kamakura" />
+                <div class="chapter-info">
+                  <h3>Chapter II · Coast &amp; Mt. Fuji</h3>
+                  <p>Kamakurakōkō-Mae · Numazu · Fuji-Q Highland</p>
+                </div>
+                <span class="chapter-dates">Dec 28–29</span>
+              </div>
+
+              <div class="chapter-row-card" onclick="jumpToSlide(9)">
+                <img class="chapter-thumb" src="images/d6_oide_park.jpg" alt="Hakuba" />
+                <div class="chapter-info">
+                  <h3>Chapter III · Hakuba Powder</h3>
+                  <p>Oide Park · Hakuba Mountain Harbor · SKI Day</p>
+                </div>
+                <span class="chapter-dates">Dec 30–Jan 01</span>
+              </div>
+
+              <div class="chapter-row-card" onclick="jumpToSlide(12)">
+                <img class="chapter-thumb" src="images/d11_shibuya_crossing.jpg" alt="Shibuya" />
+                <div class="chapter-info">
+                  <h3>Chapter IV · Shibuya, Ueno &amp; Bay</h3>
+                  <p>Tsukiji · Akihabara · Odaiba · Shibuya Crossing</p>
+                </div>
+                <span class="chapter-dates">Jan 01–04</span>
+              </div>
+
+              <div class="chapter-row-card" onclick="jumpToSlide(15)">
+                <img class="chapter-thumb" src="images/d12_narita_departure.jpg" alt="Narita Express" />
+                <div class="chapter-info">
+                  <h3>Chapter V · Narita → Back to BKK</h3>
+                  <p>APA Keisei-Narita · รถไฟออก 6.46 · Homeward</p>
+                </div>
+                <span class="chapter-dates">Jan 04–05</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SLIDE 3: WINTER CONVOY — รถเช่าและคนนั่ง
+           ===================================================== -->
+      <section class="slide theme-navy" data-title="รถเช่าและคนนั่ง · Fleet" data-sub="4 Cars · 17 Pax" data-thumb="images/convoy_winter_road.jpg">
+        <div class="full-bleed-bg">
+          <img src="images/convoy_winter_road.jpg" alt="Snowy Japanese Alps mountain range" />
+        </div>
+        <div class="full-bleed-overlay"></div>
+
+        <div class="slide-pad">
+          <header class="day-topbar anim-rise">
+            <div class="day-title-group">
+              <div class="eyebrow-row">
+                <span class="day-pill">Road Trip Fleet</span>
+                <span class="festive-tag pine">🚗 4 Vehicles · 17 Travelers</span>
+              </div>
+              <h2 class="editorial-h1">รถเช่าและคนนั่ง <em>· Convoy Lineup</em></h2>
+            </div>
+            <div class="header-meta-strip">
+              <div class="meta-chip gold-border">🗻 Fuji &amp; Hakuba Winter Convoy</div>
+            </div>
+          </header>
+
+          <div class="fleet-grid anim-rise delay-1">
+            <!-- 1st Car -->
+            <article class="car-pass-card">
+              <div class="car-photo-banner">
+                <img src="images/cover_fuji_winter.jpg" alt="Mount Fuji road trip view" />
+              </div>
+              <div class="car-pass-body">
+                <div>
+                  <div class="car-pass-top">
+                    <div class="car-number-row">
+                      <span class="car-badge-num">Vehicle 01</span>
+                      <span class="car-seat-count">6 PAX</span>
+                    </div>
+                    <h3 class="car-title">1st car</h3>
+                    <div class="car-role-tag">🚙 Lead Passenger Crew</div>
+                  </div>
+                  <div class="passenger-pills">
+                    <span class="pax-pill"><span class="pax-dot"></span>แพ็ค</span>
+                    <span class="pax-pill"><span class="pax-dot"></span>วิน</span>
+                    <span class="pax-pill"><span class="pax-dot"></span>ทราย</span>
+                    <span class="pax-pill"><span class="pax-dot"></span>แอน</span>
+                    <span class="pax-pill"><span class="pax-dot"></span>เอวา</span>
+                    <span class="pax-pill"><span class="pax-dot"></span>ปันคุง</span>
+                  </div>
+                </div>
+                <div class="car-svg-footer">
+                  <span>SNOW TIRES · AWD</span>
+                  <span>CAR #1</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 2nd Car -->
+            <article class="car-pass-card">
+              <div class="car-photo-banner">
+                <img src="images/convoy_winter_road.jpg" alt="Alpine snow transport" />
+              </div>
+              <div class="car-pass-body">
+                <div>
+                  <div class="car-pass-top">
+                    <div class="car-number-row">
+                      <span class="car-badge-num">Vehicle 02</span>
+                      <span class="car-seat-count">2 PAX + GEAR</span>
+                    </div>
+                    <h3 class="car-title">2nd car</h3>
+                    <div class="car-role-tag">🧳 ขนกระเป๋า (Luggage Van)</div>
+                  </div>
+                  <div class="passenger-pills">
+                    <span class="pax-pill"><span class="pax-dot"></span>ปุ่น</span>
+                    <span class="pax-pill"><span class="pax-dot"></span>ดน</span>
+                  </div>
+                </div>
+                <div class="car-svg-footer">
+                  <span>CARGO &amp; BAGS FLEET</span>
+                  <span>CAR #2</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 3rd Car -->
+            <article class="car-pass-card">
+              <div class="car-photo-banner">
+                <img src="images/d6_hakuba_harbor.jpg" alt="Hakuba Alps snow panorama" />
+              </div>
+              <div class="car-pass-body">
+                <div>
+                  <div class="car-pass-top">
+                    <div class="car-number-row">
+                      <span class="car-badge-num">Vehicle 03</span>
+                      <span class="car-seat-count">5 PAX</span>
+                    </div>
+                    <h3 class="car-title">3rd car</h3>
+                    <div class="car-role-tag">🚙 Family Cruiser</div>
+                  </div>
+                  <div class="passenger-pills">
+                    <span class="pax-pill"><span class="pax-dot"></span>โม่</span>
+                    <span class="pax-pill"><span class="pax-dot"></span>นิก</span>
+                    <span class="pax-pill"><span class="pax-dot"></span>ป้อง</span>
+                    <span class="pax-pill"><span class="pax-dot"></span>แม่</span>
+                    <span class="pax-pill"><span class="pax-dot"></span>ปัน</span>
+                  </div>
+                </div>
+                <div class="car-svg-footer">
+                  <span>SNOW TIRES · AWD</span>
+                  <span>CAR #3</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- 4th Car -->
+            <article class="car-pass-card">
+              <div class="car-photo-banner">
+                <img src="images/d4_kamakurakokomae.jpg" alt="Coastal drive view" />
+              </div>
+              <div class="car-pass-body">
+                <div>
+                  <div class="car-pass-top">
+                    <div class="car-number-row">
+                      <span class="car-badge-num">Vehicle 04</span>
+                      <span class="car-seat-count">4 PAX</span>
+                    </div>
+                    <h3 class="car-title">4th</h3>
+                    <div class="car-role-tag">🚙 Touring Squad</div>
+                  </div>
+                  <div class="passenger-pills">
+                    <span class="pax-pill"><span class="pax-dot"></span>เต้</span>
+                    <span class="pax-pill"><span class="pax-dot"></span>ยุ่ง</span>
+                    <span class="pax-pill"><span class="pax-dot"></span>ฟา</span>
+                    <span class="pax-pill"><span class="pax-dot"></span>แต้ว</span>
+                  </div>
+                </div>
+                <div class="car-svg-footer">
+                  <span>SNOW TIRES · AWD</span>
+                  <span>CAR #4</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SLIDE 4: DAY 1 (2026-12-25) — SHINJUKU CHRISTMAS ARRIVAL
+           ===================================================== -->
+      <section class="slide theme-navy" data-title="Day 1 · Shinjuku Arrival" data-sub="2026-12-25" data-thumb="images/d1_suga_shrine.jpg">
+        <div class="slide-pad">
+          <header class="day-topbar anim-rise">
+            <div class="day-title-group">
+              <div class="eyebrow-row">
+                <span class="day-pill">Day 1</span>
+                <span class="date-badge">2026-12-25</span>
+                <span class="festive-tag">🎄 Christmas Day</span>
+              </div>
+              <h2 class="editorial-h1">Shinjuku <em>· First Neon &amp; Shrine Steps</em></h2>
+            </div>
+            <div class="header-meta-strip">
+              <div class="meta-chip">🚄 Start: Shinjuku <span class="chip-sub">Kick-off 10:00:00</span></div>
+              <div class="meta-chip gold-border">🏨 Premier Hotel Cabin Shinjuku</div>
+            </div>
+          </header>
+
+          <div class="bento-body bento-12 anim-rise delay-1">
+            <!-- Hero Activity: Suga Shrine + 7-Eleven Yoyogi Station -->
+            <article class="photo-card span-4 row-2">
+              <img src="images/d1_suga_shrine.jpg" alt="Suga Shrine red stairs in Shinjuku" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">Afternoon</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place lg">Suga Shrine</div>
+                <div class="card-tag">+ 🏪 7-Eleven Yoyogi Station · Iconic Anime Stairs</div>
+              </div>
+            </article>
+
+            <!-- Arrival: Just Landed -->
+            <article class="photo-card span-4">
+              <img src="images/d1_shinjuku_kabukicho.jpg" alt="Shinjuku Tokyo street" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-transit">🚄 Arrival</span>
+                <span class="slot-pill">10:00:00</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Just Landed</div>
+                <div class="card-tag">Touchdown Tokyo → Shinjuku Base</div>
+              </div>
+            </article>
+
+            <!-- Lunch: Kaiten Sushi Numazuko -->
+            <article class="photo-card span-4">
+              <img src="images/d1_kaiten_sushi.jpg" alt="Kaiten Sushi Numazuko plates" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-food">🍜 Lunch</span>
+                <span class="slot-pill">Midday</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Kaiten Sushi Numazuko</div>
+                <div class="card-tag">Conveyor Belt Sushi · Suruga Catch</div>
+              </div>
+            </article>
+
+            <!-- Dinner: 昼だけうなぎ屋 池袋店 -->
+            <article class="photo-card span-4">
+              <img src="images/d1_unagi.jpg" alt="Charcoal grilled unagi over rice" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-food">🍜 Dinner</span>
+                <span class="slot-pill">Evening</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">昼だけうなぎ屋 池袋店</div>
+                <div class="card-tag">Charcoal Grilled Unagi · Ikebukuro</div>
+              </div>
+            </article>
+
+            <!-- Night: Omoide Yokocho Memory Lane -->
+            <article class="photo-card span-4">
+              <img src="images/d1_omoide_yokocho.jpg" alt="Omoide Yokocho Memory Lane Shinjuku" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-night">🌙 Night</span>
+                <span class="slot-pill">After Dark</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Omoide Yokocho Memory Lane</div>
+                <div class="card-tag">Lantern Yakitori Alleyway</div>
+              </div>
+            </article>
+          </div>
+
+          <footer class="route-ribbon anim-rise delay-2">
+            <div class="route-steps">
+              <span class="route-node">🚄 10:00:00 Just Landed</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🍜 Kaiten Sushi Numazuko</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 Suga Shrine</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🏪 7-Eleven Yoyogi Station</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🍜 昼だけうなぎ屋 池袋店</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🌙 Omoide Yokocho</span>
+            </div>
+            <span class="stay-pill-end">🏨 Premier Hotel Cabin Shinjuku</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SLIDE 5: DAY 2 (2026-12-26) — MEIJI JINGU & GOLDEN-GAI
+           ===================================================== -->
+      <section class="slide theme-snow" data-title="Day 2 · Meiji Jingu & Golden-Gai" data-sub="2026-12-26" data-thumb="images/d2_meiji_jingu.jpg">
+        <div class="slide-pad">
+          <header class="day-topbar anim-rise">
+            <div class="day-title-group">
+              <div class="eyebrow-row">
+                <span class="day-pill">Day 2</span>
+                <span class="date-badge">2026-12-26</span>
+                <span class="festive-tag pine">🌲 Sacred Forest to Neon</span>
+              </div>
+              <h2 class="editorial-h1">Shinjuku <em>· Shrine Pines &amp; Retro Alleys</em></h2>
+            </div>
+            <div class="header-meta-strip">
+              <div class="meta-chip">🚄 Start: Shinjuku <span class="chip-sub">Kick-off 10:00:00</span></div>
+              <div class="meta-chip gold-border">🏨 Premier Hotel Cabin Shinjuku</div>
+            </div>
+          </header>
+
+          <div class="bento-body bento-12 anim-rise delay-1">
+            <!-- Morning Hero: Meiji Jingu -->
+            <article class="photo-card span-5 row-2">
+              <img src="images/d2_meiji_jingu.jpg" alt="Meiji Jingu Shrine torii" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">10:00:00 Morning</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place lg">Meiji Jingu</div>
+                <div class="card-tag">Forested Cedar Sanctuary · Harajuku Shrine</div>
+              </div>
+            </article>
+
+            <!-- Nakano Broadway + Break -->
+            <article class="photo-card span-4">
+              <img src="images/d2_nakano_broadway.jpg" alt="Nakano Broadway shopping arcade" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">+ Afternoon Break</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Nakano Broadway</div>
+                <div class="card-tag">Vintage Collectibles · Followed by Break</div>
+              </div>
+            </article>
+
+            <!-- Stay Card: Premier Hotel Cabin Shinjuku -->
+            <article class="photo-card span-3">
+              <img src="images/d1_hotel_shinjuku.jpg" alt="Shinjuku skyline hotel base" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-stay">🏨 Stay</span>
+                <span class="slot-pill">Rest / Break</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place sm">Premier Hotel Cabin Shinjuku</div>
+                <div class="card-tag">Afternoon Break &amp; Night Base</div>
+              </div>
+            </article>
+
+            <!-- Dinner: Hobo Shinjuku Norengai + Optional Uonami Fish Bar -->
+            <article class="photo-card span-4">
+              <img src="images/d2_izakaya_norengai.jpg" alt="Hobo Shinjuku Norengai lantern izakaya" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-food">🍜 Dinner</span>
+                <span class="slot-pill">✨ Idea: Uonami Fish Bar</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Hobo Shinjuku Norengai</div>
+                <div class="card-tag">Retro Warehouse Dining · Opt: Uonami Fish Bar</div>
+              </div>
+            </article>
+
+            <!-- Night: Shinjuku Golden-Gai -->
+            <article class="photo-card span-3">
+              <img src="images/d2_golden_gai.jpg" alt="Shinjuku Golden-Gai narrow alleys at night" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-night">🌙 Night</span>
+                <span class="slot-pill">Late Night</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place sm">Shinjuku Golden-Gai</div>
+                <div class="card-tag">Iconic Micro-Bar Lanes</div>
+              </div>
+            </article>
+          </div>
+
+          <footer class="route-ribbon anim-rise delay-2">
+            <div class="route-steps">
+              <span class="route-node">🚄 10:00:00 Meiji Jingu</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 Nakano Broadway</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">☕ Break</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🍜 Hobo Shinjuku Norengai</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🌙 Shinjuku Golden-Gai</span>
+              <span class="route-node optional">✨ Optional: Uonami Fish Bar</span>
+            </div>
+            <span class="stay-pill-end">🏨 Premier Hotel Cabin Shinjuku</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SLIDE 6: DAY 3 (2026-12-27) — GOTOKUJI & SHIMOKITAZAWA
+           ===================================================== -->
+      <section class="slide theme-navy" data-title="Day 3 · Gōtokuji & Shimokitazawa" data-sub="2026-12-27" data-thumb="images/d3_gotokuji.jpg">
+        <div class="slide-pad">
+          <header class="day-topbar anim-rise">
+            <div class="day-title-group">
+              <div class="eyebrow-row">
+                <span class="day-pill">Day 3</span>
+                <span class="date-badge">2026-12-27</span>
+              </div>
+              <h2 class="editorial-h1">Setagaya Stroll <em>· Lucky Cats &amp; Indie Lanes</em></h2>
+            </div>
+            <div class="header-meta-strip">
+              <div class="meta-chip">🚄 Start: Shinjuku <span class="chip-sub">Kick-off 10:00:00</span></div>
+              <div class="meta-chip gold-border">🏨 Premier Hotel Cabin Shinjuku</div>
+            </div>
+          </header>
+
+          <div class="bento-body bento-12 anim-rise delay-1">
+            <!-- Hero: Gotokuji Temple -->
+            <article class="photo-card span-4 row-2">
+              <img src="images/d3_gotokuji.jpg" alt="Gotokuji Temple white beckoning cats" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">10:00:00 Morning</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place lg">Gōtokuji Temple</div>
+                <div class="card-tag">Thousands of Maneki-Neko Lucky Cats</div>
+              </div>
+            </article>
+
+            <!-- Carrot Tower + Sangenjaya Gorilla Building -->
+            <article class="photo-card span-4">
+              <img src="images/d3_carrot_tower.jpg" alt="Carrot Tower Sangenjaya" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">Sangenjaya</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Carrot Tower</div>
+                <div class="card-tag">+ 🦍 Sangenjaya Gorilla Building</div>
+              </div>
+            </article>
+
+            <!-- Lunch: Bistro Apollon -->
+            <article class="photo-card span-4">
+              <img src="images/d3_bistro_french.jpg" alt="Bistro Apollon lunch dish" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-food">🍜 Lunch</span>
+                <span class="slot-pill">Midday</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Bistro Apollon</div>
+                <div class="card-tag">Neighborhood Bistro Table</div>
+              </div>
+            </article>
+
+            <!-- Afternoon: Shimokitazawa + Optional Flea Market -->
+            <article class="photo-card span-4">
+              <img src="images/d3_shimokitazawa.jpg" alt="Shimokitazawa vintage shopping street" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">✨ Idea: Flea Market</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Shimokitazawa</div>
+                <div class="card-tag"> Indie Thrift Boutiques &amp; Flea Market</div>
+              </div>
+            </article>
+
+            <!-- Dinner & Night: Yatai Ramen Shunya Chan + Izakaya Street -->
+            <article class="photo-card span-4">
+              <img src="images/d3_ramen_yatai.jpg" alt="Steaming bowl of Japanese yatai ramen" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-food">🍜 Dinner &amp; Night</span>
+                <span class="slot-pill">🌙 Izakaya Street</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Yatai Rāmen Shunya Chan</div>
+                <div class="card-tag">Followed by Night · Izakaya Street</div>
+              </div>
+            </article>
+          </div>
+
+          <footer class="route-ribbon anim-rise delay-2">
+            <div class="route-steps">
+              <span class="route-node">🎿 Gōtokuji Temple</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 Carrot Tower</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🍜 Bistro Apollon</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 Gorilla Building</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 Shimokitazawa</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🍜 Yatai Rāmen Shunya Chan</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🌙 Izakaya Street</span>
+              <span class="route-node optional">✨ Flea Market</span>
+            </div>
+            <span class="stay-pill-end">🏨 Premier Hotel Cabin Shinjuku</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SLIDE 7: DAY 4 (2026-12-28) — COASTAL DRIVE TO MT. FUJI
+           ===================================================== -->
+      <section class="slide theme-snow" data-title="Day 4 · Kamakura & Numazu to Fuji" data-sub="2026-12-28" data-thumb="images/d4_kamakurakokomae.jpg">
+        <div class="slide-pad">
+          <header class="day-topbar anim-rise">
+            <div class="day-title-group">
+              <div class="eyebrow-row">
+                <span class="day-pill">Day 4</span>
+                <span class="date-badge">2026-12-28</span>
+                <span class="festive-tag pine">🚗 Coastal Convoy</span>
+              </div>
+              <h2 class="editorial-h1">Fuji Bound <em>· Ocean Rail &amp; Port Seafood</em></h2>
+            </div>
+            <div class="header-meta-strip">
+              <div class="meta-chip">🚄 Start: Fuji Route <span class="chip-sub">Kick-off 09:00</span></div>
+              <div class="meta-chip gold-border">🏨 Stay: Fuji</div>
+            </div>
+          </header>
+
+          <div class="bento-body bento-12 anim-rise delay-1">
+            <!-- Hero: Kamakurakoko-Mae Station -->
+            <article class="photo-card span-5 row-2">
+              <img src="images/d4_kamakurakokomae.jpg" alt="Kamakurakoko-Mae Station ocean crossing" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">09:00 Kick-off</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place lg">Kamakurakōkō-Mae Station</div>
+                <div class="card-tag">Iconic Enoden Seaside Rail Crossing</div>
+              </div>
+            </article>
+
+            <!-- Lunch: Numazu Fish Market -->
+            <article class="photo-card span-4 row-2">
+              <img src="images/d4_numazu_market.jpg" alt="Numazu Fish Market port" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-food">🍜 Lunch</span>
+                <span class="slot-pill">Port Harbour</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place lg">Numazu Fish Market</div>
+                <div class="card-tag">Fresh Suruga Bay Sashimi &amp; Grill</div>
+              </div>
+            </article>
+
+            <!-- Optional: Hakone Shrine -->
+            <article class="photo-card span-3">
+              <img src="images/d4_hakone_shrine.jpg" alt="Hakone Shrine red torii gate on Lake Ashi" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-idea">✨ Optional Idea</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place sm">Hakone Shrine</div>
+                <div class="card-tag">Lake Ashi Floating Torii</div>
+              </div>
+            </article>
+
+            <!-- Stay: Fuji -->
+            <article class="photo-card span-3">
+              <img src="images/cover_fuji_winter.jpg" alt="Mount Fuji winter retreat" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-stay">🏨 Stay</span>
+                <span class="slot-pill">Night 1 in Fuji</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place sm">Fuji</div>
+                <div class="card-tag">Mountain Base Check-in</div>
+              </div>
+            </article>
+          </div>
+
+          <footer class="route-ribbon anim-rise delay-2">
+            <div class="route-steps">
+              <span class="route-node">🚄 09:00 Kick-off (Fuji Route)</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 Kamakurakōkō-Mae Station</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🍜 Numazu Fish Market</span>
+              <span class="route-node optional">✨ Optional: Hakone Shrine</span>
+            </div>
+            <span class="stay-pill-end">🏨 Stay: Fuji</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SLIDE 8: DAY 5 (2026-12-29) — FUJI-Q HIGHLAND HERO
+           ===================================================== -->
+      <section class="slide theme-navy" data-title="Day 5 · Fuji-Q Highland" data-sub="2026-12-29" data-thumb="images/d5_fujiq_highland.jpg">
+        <div class="full-bleed-bg">
+          <img src="images/d5_fujiq_highland.jpg" alt="Fuji-Q Highland roller coaster beneath Mount Fuji" />
+        </div>
+        <div class="full-bleed-overlay bottom-heavy"></div>
+
+        <div class="slide-pad">
+          <header class="day-topbar anim-rise">
+            <div class="day-title-group">
+              <div class="eyebrow-row">
+                <span class="day-pill">Day 5</span>
+                <span class="date-badge">2026-12-29</span>
+                <span class="festive-tag">🗻 Mt. Fuji Base</span>
+              </div>
+              <h2 class="editorial-h1">Fuji-Q Highland <em>· Sky-High Thrills</em></h2>
+            </div>
+            <div class="header-meta-strip">
+              <div class="meta-chip">🚄 Start: Fuji <span class="chip-sub">Kick-off 09:00</span></div>
+              <div class="meta-chip gold-border">🏨 Stay: Fuji</div>
+            </div>
+          </header>
+
+          <div class="hero-bottom-dock anim-rise delay-2">
+            <div class="hero-headline-box">
+              <span class="cat-badge cat-activity">🎿 Full-Day Featured Activity</span>
+              <h3 class="hero-big-place" style="margin-top:1cqh;">Fuji-Q Highland</h3>
+              <div class="hero-pill-row">
+                <span class="meta-chip">⏰ 09:00 Kick-off</span>
+                <span class="meta-chip">🎢 Coasters Under Mt. Fuji</span>
+                <span class="meta-chip gold-border">🏨 Stay Location: Fuji</span>
+              </div>
+            </div>
+
+            <article class="photo-card" style="height:26cqh;">
+              <img src="images/cover_fuji_winter.jpg" alt="Mount Fuji snow panorama" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-stay">🏨 Stay</span>
+                <span class="slot-pill">Night 2 in Fuji</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Fuji</div>
+                <div class="card-tag">Rest Before 06:00 Hakuba Drive</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SLIDE 9: DAY 6 (2026-12-30) — HAKUBA MOUNTAIN HARBOR & OIDE PARK
+           ===================================================== -->
+      <section class="slide theme-snow" data-title="Day 6 · Hakuba Mountain Harbor" data-sub="2026-12-30" data-thumb="images/d6_hakuba_harbor.jpg">
+        <div class="slide-pad">
+          <header class="day-topbar anim-rise">
+            <div class="day-title-group">
+              <div class="eyebrow-row">
+                <span class="day-pill">Day 6</span>
+                <span class="date-badge">2026-12-30</span>
+                <span class="festive-tag pine">❄️ Northern Alps</span>
+              </div>
+              <h2 class="editorial-h1">Hakuba <em>· Alpine Terrace &amp; Bridge</em></h2>
+            </div>
+            <div class="header-meta-strip">
+              <div class="meta-chip">🚄 Start: Hakuba <span class="chip-sub">Kick-off 06:00</span></div>
+              <div class="meta-chip gold-border">🏨 Stay: Hakuba</div>
+            </div>
+          </header>
+
+          <div class="bento-body bento-12 anim-rise delay-1">
+            <!-- Hero: HAKUBA MOUNTAIN HARBOR -->
+            <article class="photo-card span-7 row-2">
+              <img src="images/d6_hakuba_harbor.jpg" alt="Hakuba Northern Alps snowy peaks" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">Alpine Summit</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place lg">HAKUBA MOUNTAIN HARBOR</div>
+                <div class="card-tag">Panoramic Northern Alps Cliffside Deck</div>
+              </div>
+            </article>
+
+            <!-- Lunch / Scenic: Oide Park -->
+            <article class="photo-card span-5">
+              <img src="images/d6_oide_park.jpg" alt="Oide Park Hakuba bridge and snow peaks" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-food">🍜 Lunch &amp; Scenic</span>
+                <span class="slot-pill">Midday Stop</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Oide Park</div>
+                <div class="card-tag">Suspension Bridge &amp; Himekawa River View</div>
+              </div>
+            </article>
+
+            <!-- Stay: Hakuba -->
+            <article class="photo-card span-5">
+              <img src="images/convoy_winter_road.jpg" alt="Hakuba winter chalet stay" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-stay">🏨 Stay</span>
+                <span class="slot-pill">06:00 Dawn Start</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Hakuba</div>
+                <div class="card-tag">Alpine Snow Base · Night 1 in Hakuba</div>
+              </div>
+            </article>
+          </div>
+
+          <footer class="route-ribbon anim-rise delay-2">
+            <div class="route-steps">
+              <span class="route-node">🚄 06:00 Early Kick-off</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🍜 Oide Park (Lunch)</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 HAKUBA MOUNTAIN HARBOR</span>
+            </div>
+            <span class="stay-pill-end">🏨 Stay: Hakuba</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SLIDE 10: DAY 7 (2026-12-31) — HAKUBA SKI DAY (NYE)
+           ===================================================== -->
+      <section class="slide theme-navy" data-title="Day 7 · Hakuba SKI Day (NYE)" data-sub="2026-12-31" data-thumb="images/d7_hakuba_ski.jpg">
+        <div class="full-bleed-bg">
+          <img src="images/d7_hakuba_ski.jpg" alt="Powder skiing in Hakuba Alps" />
+        </div>
+        <div class="full-bleed-overlay bottom-heavy"></div>
+
+        <div class="slide-pad">
+          <header class="day-topbar anim-rise">
+            <div class="day-title-group">
+              <div class="eyebrow-row">
+                <span class="day-pill">Day 7</span>
+                <span class="date-badge">2026-12-31</span>
+                <span class="festive-tag">🥂 New Year's Eve</span>
+              </div>
+              <h2 class="editorial-h1">Hakuba Valley <em>· Powder SKI Day</em></h2>
+            </div>
+            <div class="header-meta-strip">
+              <div class="meta-chip">🚄 Start: Hakuba <span class="chip-sub">Kick-off 10:00:00</span></div>
+              <div class="meta-chip gold-border">🏨 Stay: Hakuba</div>
+            </div>
+          </header>
+
+          <div class="hero-bottom-dock anim-rise delay-2">
+            <div class="hero-headline-box">
+              <span class="cat-badge cat-activity">🎿 All-Day Alpine Session</span>
+              <h3 class="hero-big-place" style="margin-top:1cqh;">SKI Day</h3>
+              <div class="hero-pill-row">
+                <span class="meta-chip">⏰ 10:00:00 Kick-off</span>
+                <span class="meta-chip">🎿 Japow Alpine Slopes</span>
+                <span class="meta-chip gold-border">🎆 NYE Stay: Hakuba</span>
+              </div>
+            </div>
+
+            <article class="photo-card" style="height:26cqh;">
+              <img src="images/d6_oide_park.jpg" alt="Hakuba village in winter snow" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-stay">🏨 Stay</span>
+                <span class="slot-pill">2026 → 2027</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Hakuba</div>
+                <div class="card-tag">New Year's Eve Celebration in the Alps</div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SLIDE 11: DAY 8 (2027-01-01) — HAKUBA TO SHIBUYA
+           ===================================================== -->
+      <section class="slide theme-navy" data-title="Day 8 · Hakuba → Shibuya" data-sub="2027-01-01" data-thumb="images/d8_shibuya_night.jpg">
+        <div class="slide-pad">
+          <header class="day-topbar anim-rise">
+            <div class="day-title-group">
+              <div class="eyebrow-row">
+                <span class="day-pill">Day 8</span>
+                <span class="date-badge">2027-01-01</span>
+                <span class="festive-tag">🎍 New Year's Day</span>
+              </div>
+              <h2 class="editorial-h1">Alps to Metropolis <em>· Return to Tokyo</em></h2>
+            </div>
+            <div class="header-meta-strip">
+              <div class="meta-chip">🚄 Start: Hakuba <span class="chip-sub">Kick-off 10:00:00</span></div>
+              <div class="meta-chip gold-border">🏨 Stay: Shibuya</div>
+            </div>
+          </header>
+
+          <div class="dual-split-stage anim-rise delay-1">
+            <!-- Origin: Hakuba -->
+            <article class="photo-card">
+              <img src="images/d6_hakuba_harbor.jpg" alt="Snowy Hakuba mountains morning" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-transit">🚄 Departure</span>
+                <span class="slot-pill">10:00:00 Kick-off</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place lg">Hakuba</div>
+                <div class="card-tag">Starting Location · First Morning of 2027</div>
+              </div>
+            </article>
+
+            <!-- Center Route Bridge -->
+            <div class="transit-bridge-pill">
+              <span>🏔️ HAKUBA</span>
+              <span>━━ 🚄 10:00:00 ━━▶</span>
+              <span>🌃 SHIBUYA</span>
+            </div>
+
+            <!-- Destination Stay: Shibuya -->
+            <article class="photo-card">
+              <img src="images/d8_shibuya_night.jpg" alt="Shibuya night skyline" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-stay">🏨 Stay Location</span>
+                <span class="slot-pill">Evening Check-in</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place lg">Shibuya</div>
+                <div class="card-tag">Tokyo City Lights · New Year's Night</div>
+              </div>
+            </article>
+          </div>
+
+          <footer class="route-ribbon anim-rise delay-2">
+            <div class="route-steps">
+              <span class="route-node">🚄 10:00:00 Depart Hakuba</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🛣️ Scenic Return Across Nagano &amp; Kanto</span>
+            </div>
+            <span class="stay-pill-end">🏨 Stay: Shibuya</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SLIDE 12: DAY 9 (2027-01-02) — TSUKIJI, YANAKA, AKIHABARA & UENO
+           ===================================================== -->
+      <section class="slide theme-snow" data-title="Day 9 · Tsukiji, Akihabara & Ueno" data-sub="2027-01-02" data-thumb="images/d9_tsukiji.jpg">
+        <div class="slide-pad">
+          <header class="day-topbar anim-rise">
+            <div class="day-title-group">
+              <div class="eyebrow-row">
+                <span class="day-pill">Day 9</span>
+                <span class="date-badge">2027-01-02</span>
+              </div>
+              <h2 class="editorial-h1">East Tokyo Heritage <em>· Markets &amp; Electric Neon</em></h2>
+            </div>
+            <div class="header-meta-strip">
+              <div class="meta-chip">🚄 Start: Shibuya <span class="chip-sub">Kick-off 10:00:00</span></div>
+              <div class="meta-chip gold-border">🏨 APA HOTEL UENO-EKIKITA</div>
+            </div>
+          </header>
+
+          <div class="bento-body bento-12 anim-rise delay-1">
+            <!-- Lunch: Tsukiji Market -->
+            <article class="photo-card span-4">
+              <img src="images/d9_tsukiji.jpg" alt="Tsukiji Market seafood" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-food">🍜 Lunch</span>
+                <span class="slot-pill">10:00:00 Start</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Tsukiji Market</div>
+                <div class="card-tag">Morning Street Seafood &amp; Sashimi</div>
+              </div>
+            </article>
+
+            <!-- Yanaka Ginza -->
+            <article class="photo-card span-4">
+              <img src="images/d9_yanaka_ginza.jpg" alt="Yanaka Ginza shopping street" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">Afternoon</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Yanaka Ginza</div>
+                <div class="card-tag">Old-World Shitamachi Shopping Street</div>
+              </div>
+            </article>
+
+            <!-- Akihabara + Eco Town -->
+            <article class="photo-card span-4">
+              <img src="images/d9_akihabara.jpg" alt="Akihabara Electric Town at night" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">✨ Idea: Eco Town</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Akihabara</div>
+                <div class="card-tag">Electric Town + Optional: Eco Town</div>
+              </div>
+            </article>
+
+            <!-- Dinner: 有楽町産直横丁 -->
+            <article class="photo-card span-4">
+              <img src="images/d9_yurakucho.jpg" alt="Yurakucho izakaya alley" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-food">🍜 Dinner</span>
+                <span class="slot-pill">✨ Reman kamo to negi</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">有楽町産直横丁</div>
+                <div class="card-tag">Yurakucho Alley · Opt: Reman kamo to negi</div>
+              </div>
+            </article>
+
+            <!-- Night: Ameyoko market -->
+            <article class="photo-card span-4">
+              <img src="images/d9_ameyoko.jpg" alt="Ameyoko market Ueno" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-night">🌙 Night</span>
+                <span class="slot-pill">Ueno District</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Ameyoko market</div>
+                <div class="card-tag">Vibrant Open-Air Night Market</div>
+              </div>
+            </article>
+
+            <!-- Stay: APA HOTEL UENO-EKIKITA -->
+            <article class="photo-card span-4">
+              <img src="images/d3_ramen_yatai.jpg" alt="Duck and scallion ramen idea and Ueno stay" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-stay">🏨 Stay</span>
+                <span class="slot-pill">Ueno Station</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place sm">APA HOTEL UENO-EKIKITA</div>
+                <div class="card-tag">+ Ramen Idea: Reman kamo to negi</div>
+              </div>
+            </article>
+          </div>
+
+          <footer class="route-ribbon anim-rise delay-2">
+            <div class="route-steps">
+              <span class="route-node">🍜 Tsukiji Market</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 Yanaka Ginza</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 Akihabara</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🍜 有楽町産直横丁</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🌙 Ameyoko market</span>
+              <span class="route-node optional">✨ Eco Town · Reman kamo to negi</span>
+            </div>
+            <span class="stay-pill-end">🏨 APA HOTEL UENO-EKIKITA</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SLIDE 13: DAY 10 (2027-01-03) — ODAIBA, RAINBOW BRIDGE & TOKYO TOWER
+           ===================================================== -->
+      <section class="slide theme-navy" data-title="Day 10 · Odaiba & Tokyo Tower" data-sub="2027-01-03" data-thumb="images/d10_rainbow_bridge.jpg">
+        <div class="slide-pad">
+          <header class="day-topbar anim-rise">
+            <div class="day-title-group">
+              <div class="eyebrow-row">
+                <span class="day-pill">Day 10</span>
+                <span class="date-badge">2027-01-03</span>
+              </div>
+              <h2 class="editorial-h1">Bayfront &amp; Tower Glow <em>· Shibuya to Odaiba</em></h2>
+            </div>
+            <div class="header-meta-strip">
+              <div class="meta-chip">🚄 Start: Shibuya <span class="chip-sub">Kick-off 10:00:00</span></div>
+              <div class="meta-chip gold-border">🏨 The OneFive Tokyo Shibuya</div>
+            </div>
+          </header>
+
+          <div class="bento-body bento-12 anim-rise delay-1">
+            <!-- Hero Night: 7-Eleven Tokyo Tower -->
+            <article class="photo-card span-4 row-2">
+              <img src="images/d10_tokyo_tower.jpg" alt="Tokyo Tower glowing crimson at night" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-night">🌙 Night Attraction</span>
+                <span class="slot-pill">Iconic Spot</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place lg">7-Eleven Tokyo Tower</div>
+                <div class="card-tag">Famous Street-Corner Crimson Tower Frame</div>
+              </div>
+            </article>
+
+            <!-- Tokyu Plaza -->
+            <article class="photo-card span-4">
+              <img src="images/d10_tokyu_plaza.jpg" alt="Tokyu Plaza mirrored entrance" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">10:00:00</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Tokyu Plaza</div>
+                <div class="card-tag">Kaleidoscope Architecture &amp; Terrace</div>
+              </div>
+            </article>
+
+            <!-- Yebisu Brewery Tokyo -->
+            <article class="photo-card span-4">
+              <img src="images/d10_yebisu_brewery.jpg" alt="Yebisu Brewery Tokyo at Yebisu Garden Place" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">Craft Tasting</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Yebisu Brewery Tokyo</div>
+                <div class="card-tag">Heritage Craft Beer Taproom</div>
+              </div>
+            </article>
+
+            <!-- AQUA CiTY Odaiba + Rainbow Bridge -->
+            <article class="photo-card span-5">
+              <img src="images/d10_rainbow_bridge.jpg" alt="Rainbow Bridge and AQUA CiTY Odaiba" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">Bay Sunset</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">AQUA CiTY Odaiba &amp; Rainbow Bridge</div>
+                <div class="card-tag">Waterfront Decks &amp; Illuminated Bay Span</div>
+              </div>
+            </article>
+
+            <!-- Dinner: Drive-in DenDen + Stay -->
+            <article class="photo-card span-3">
+              <img src="images/d2_izakaya_norengai.jpg" alt="Drive-in DenDen dinner" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-food">🍜 Dinner</span>
+                <span class="slot-pill">Evening</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place sm">Drive-in DenDen</div>
+                <div class="card-tag">Stay: The OneFive Tokyo Shibuya</div>
+              </div>
+            </article>
+          </div>
+
+          <footer class="route-ribbon anim-rise delay-2">
+            <div class="route-steps">
+              <span class="route-node">🎿 Tokyu Plaza</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 Yebisu Brewery Tokyo</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 AQUA CiTY Odaiba</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 Rainbow Bridge</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🍜 Drive-in DenDen</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🌙 7-Eleven Tokyo Tower</span>
+            </div>
+            <span class="stay-pill-end">🏨 The OneFive Tokyo Shibuya</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SLIDE 14: DAY 11 (2027-01-04) — SHIBUYA FINALE & NARITA STAY
+           ===================================================== -->
+      <section class="slide theme-snow" data-title="Day 11 · Shibuya Finale & Narita" data-sub="2027-01-04" data-thumb="images/d11_shibuya_crossing.jpg">
+        <div class="slide-pad">
+          <header class="day-topbar anim-rise">
+            <div class="day-title-group">
+              <div class="eyebrow-row">
+                <span class="day-pill">Day 11</span>
+                <span class="date-badge">2027-01-04</span>
+              </div>
+              <h2 class="editorial-h1">Shibuya Finale <em>· Scramble, Cat St &amp; Ramen</em></h2>
+            </div>
+            <div class="header-meta-strip">
+              <div class="meta-chip">🚄 Start: Shibuya <span class="chip-sub">Kick-off 10:00:00</span></div>
+              <div class="meta-chip gold-border">🏨 APA Hotel Keisei-Narita Sta.</div>
+            </div>
+          </header>
+
+          <div class="bento-body bento-12 anim-rise delay-1">
+            <!-- Hero: Shibuya Crossing -->
+            <article class="photo-card span-5 row-2">
+              <img src="images/d11_shibuya_crossing.jpg" alt="Shibuya Crossing aerial view" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">Afternoon Icon</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place lg">Shibuya Crossing</div>
+                <div class="card-tag">World's Most Iconic Scramble Intersection</div>
+              </div>
+            </article>
+
+            <!-- Shibuya Center-Gai Street + Yuyuichiba -->
+            <article class="photo-card span-4">
+              <img src="images/d11_center_gai.jpg" alt="Shibuya Center-Gai Street" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">10:00:00</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Shibuya Center-Gai Street</div>
+                <div class="card-tag">+ Yuyuichiba Shopping &amp; Stroll</div>
+              </div>
+            </article>
+
+            <!-- Cat St -->
+            <article class="photo-card span-3">
+              <img src="images/d11_cat_street.jpg" alt="Cat Street Harajuku Shibuya" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-activity">🎿 Activity</span>
+                <span class="slot-pill">Streetwear</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place sm">Cat St</div>
+                <div class="card-tag">Ura-Harajuku Flagships</div>
+              </div>
+            </article>
+
+            <!-- Dinner: Tsukumo Ramen Ebisu Honten -->
+            <article class="photo-card span-4">
+              <img src="images/d11_tsukumo_ramen.jpg" alt="Tsukumo Ramen bowl" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-food">🍜 Dinner</span>
+                <span class="slot-pill">Ebisu</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place">Tsukumo Ramen Ebisu Honten</div>
+                <div class="card-tag">Famous Rich Tonkotsu Ramen Finale</div>
+              </div>
+            </article>
+
+            <!-- Stay: APA Hotel Keisei-Narita Sta. -->
+            <article class="photo-card span-3">
+              <img src="images/d12_narita_departure.jpg" alt="Keisei Narita train connection" />
+              <div class="photo-scrim"></div>
+              <div class="card-top-badges">
+                <span class="cat-badge cat-stay">🏨 Stay</span>
+                <span class="slot-pill">Pre-Flight</span>
+              </div>
+              <div class="card-bottom-caption">
+                <div class="card-place sm">APA Hotel Keisei-Narita Sta.</div>
+                <div class="card-tag">Ready for 6.46 Morning Train</div>
+              </div>
+            </article>
+          </div>
+
+          <footer class="route-ribbon anim-rise delay-2">
+            <div class="route-steps">
+              <span class="route-node">🎿 Shibuya Center-Gai Street</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 Yuyuichiba</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 Shibuya Crossing</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🎿 Cat St</span>
+              <span class="route-arrow">→</span>
+              <span class="route-node">🍜 Tsukumo Ramen Ebisu Honten</span>
+            </div>
+            <span class="stay-pill-end">🏨 APA Hotel Keisei-Narita Sta.</span>
+          </footer>
+        </div>
+      </section>
+
+      <!-- =====================================================
+           SLIDE 15: DAY 12 (2027-01-05) — NARITA → BACK TO BKK
+           ===================================================== -->
+      <section class="slide theme-navy" data-title="Day 12 · Back to BKK" data-sub="2027-01-05" data-thumb="images/d12_narita_departure.jpg">
+        <div class="full-bleed-bg">
+          <img src="images/d12_narita_departure.jpg" alt="Keisei Skyliner morning train to Narita Airport" />
+        </div>
+        <div class="full-bleed-overlay bottom-heavy"></div>
+
+        <div class="slide-pad">
+          <header class="day-topbar anim-rise">
+            <div class="day-title-group">
+              <div class="eyebrow-row">
+                <span class="day-pill">Day 12 · Finale</span>
+                <span class="date-badge">2027-01-05</span>
+                <span class="festive-tag">✈️ Homeward Bound</span>
+              </div>
+              <h2 class="editorial-h1">Narita Departure <em>· Back to BKK</em></h2>
+            </div>
+            <div class="header-meta-strip">
+              <div class="meta-chip gold-border">🚄 Start: Narita <span class="chip-sub">รถไฟออก 6.46</span></div>
+            </div>
+          </header>
+
+          <div class="hero-bottom-dock anim-rise delay-2">
+            <div class="hero-headline-box">
+              <span class="cat-badge cat-transit">🚄 Dawn Rail &amp; Flight</span>
+              <h3 class="hero-big-place" style="margin-top:1cqh;">Back to BKK</h3>
+              <div class="hero-pill-row">
+                <span class="meta-chip gold-border">🚄 รถไฟออก 6.46</span>
+                <span class="meta-chip">📍 Starting Location: Narita</span>
+                <span class="meta-chip">🎄 Dec 25, 2026 — Jan 05, 2027</span>
+              </div>
+            </div>
+
+            <div style="display:flex; flex-direction:column; align-items:flex-end; justify-content:flex-end; gap:1.2cqh;">
+              <button type="button" class="start-cta-btn" onclick="jumpToSlide(1)">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+                <span>Replay Presentation</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- =====================================================
+       KEYNOTE BOTTOM GLASS NAVIGATION DOCK
+       ===================================================== -->
+  <nav class="deck-controls" aria-label="Slide navigation">
+    <button type="button" class="ctrl-btn" id="prevBtn" aria-label="Previous slide (Left Arrow)" title="Previous Slide (←)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M15 18l-6-6 6-6"/></svg>
+    </button>
+
+    <div class="slide-status-pill" id="statusPill" role="button" tabindex="0" title="Open Slide Overview (G)">
+      <span class="status-count" id="statusCount">01 / 15</span>
+      <span class="status-label" id="statusLabel">Cover · Winter in Japan</span>
+    </div>
+
+    <button type="button" class="ctrl-btn" id="nextBtn" aria-label="Next slide (Right Arrow)" title="Next Slide (→)">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M9 18l6-6-6-6"/></svg>
+    </button>
+
+    <div class="ctrl-divider" aria-hidden="true"></div>
+
+    <button type="button" class="ctrl-btn" id="gridBtn" aria-label="All slides overview (G)" title="Slide Sorter Grid (G)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+    </button>
+
+    <button type="button" class="ctrl-btn active-toggle" id="snowBtn" aria-label="Toggle snowfall ambience (S)" title="Toggle Winter Snow (S)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M19.07 4.93L4.93 19.07"/></svg>
+    </button>
+
+    <button type="button" class="ctrl-btn" id="fullscreenBtn" aria-label="Toggle fullscreen presentation (F)" title="Fullscreen 16:9 (F)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>
+    </button>
+  </nav>
+
+  <!-- =====================================================
+       SLIDE SORTER DRAWER (PRESS G OR CLICK COUNTER)
+       ===================================================== -->
+  <aside class="grid-drawer" id="gridDrawer" aria-label="Slide overview grid">
+    <div class="grid-drawer-header">
+      <h2>All Slides · Winter in Japan (15)</h2>
+      <button type="button" class="ctrl-btn" id="closeGridBtn" aria-label="Close slide overview">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <div class="sorter-cards" id="sorterCards"></div>
+  </aside>
+
+  <script src="app.js"></script>
+</body>
+</html>
